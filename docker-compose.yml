@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  hghs-test-hghs:
+    container_name: hghs-test-hghs
+    restart: always
+    build: ./io/hghs
+    environment:
+      PORT: "8008"
+      BACKEND_LOG_LEVEL: DEBUG
+      BACKEND_URL: "http://0.0.0.0:8008"
+      BACKEND_USERNAME: "app"
+      BACKEND_PASSWORD: "p4sSw0rd123"
+      BACKEND_EMAIL_CONFIG: "smtp://hghs-test-smtp:1025"
+      BACKEND_JWT_SECRET: "HyztBRx6pLpsmVCewATv8TctTTtEHrPz"
+    ports:
+    - "8008:8008"

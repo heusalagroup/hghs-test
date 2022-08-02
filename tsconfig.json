@@ -1,0 +1,38 @@
+{
+  "ts-node": {
+    "compilerOptions": {
+      "target": "ES2017",
+      "moduleResolution": "node",
+      "module": "commonjs",
+      "lib": []
+    }
+  },
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    //"isolatedModules": true,
+    //"noEmit": true,
+    //"jsx": "react-jsx",
+    "outDir": "./build"
+  },
+  "include": [
+    "src"
+  ]
+}

@@ -1,0 +1,45 @@
+version: '3.1'
+
+services:
+
+  hghs-test-postgres:
+    container_name: hghs-test-postgres
+    hostname: hghs-test-postgres
+    image: postgres:14
+    restart: always
+    volumes:
+    - ./io/synapse/create_db.sh:/docker-entrypoint-initdb.d/20-create_db.sh
+    - ./io/synapse/pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: qTuH2FK8EgKUyWae
+      POSTGRES_USER: synapse
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U synapse"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # See also https://hub.docker.com/r/mailhog/mailhog/
+  hghs-test-smtp:
+    container_name: hghs-test-smtp
+    image: mailhog/mailhog
+    restart: always
+    logging:
+      driver: "none"  # disable saving logs
+    ports:
+    - "1025:1025" # smtp server
+    - "8025:8025" # web ui
+
+  # See also https://hub.docker.com/r/matrixdotorg/synapse/
+  hghs-test-synapse:
+    container_name: hghs-test-synapse
+    image: matrixdotorg/synapse:latest
+    restart: always
+    volumes:
+    - ./io/synapse/data:/data
+    - ./io/synapse/create_user.sh:/docker-entrypoint-initdb.d/20-create_user.sh
+    ports:
+    - "8008:8008" # matrix io server
+    depends_on:
+    - hghs-test-smtp
+    - hghs-test-postgres

@@ -1,0 +1,12 @@
+[submodule "src/fi/hg/core"]
+	path = src/fi/hg/core
+	url = git@github.com:heusalagroup/fi.hg.core.git
+	branch = main
+[submodule "src/fi/hg/matrix"]
+	path = src/fi/hg/matrix
+	url = git@github.com:heusalagroup/fi.hg.matrix.git
+	branch = main
+[submodule "io/hghs"]
+	path = io/hghs
+	url = git@github.com:heusalagroup/hghs.git
+	branch = main
