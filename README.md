@@ -5,7 +5,6 @@ These tests will be used as a specification what we'll implement next in
 and will eventually be system tests for our software:
 
  * [`hghs`](https://github.com/heusalagroup/hghs) Matrix.org server
- * [`fi.hg.matrix`](https://github.com/heusalagroup/fi.hg.matrix) git module
  * [`SimpleMatrixClient`](https://github.com/heusalagroup/fi.hg.matrix/blob/main/SimpleMatrixClient.ts) lightweight, zero dep Matrix client
  * [`MatrixCrudRepository`](https://github.com/heusalagroup/fi.hg.matrix/blob/main/MatrixCrudRepository.ts) CRUD repository implementation
 
