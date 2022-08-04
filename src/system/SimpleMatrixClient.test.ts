@@ -11,9 +11,9 @@ import { SimpleMatrixClientState } from "../fi/hg/matrix/types/SimpleMatrixClien
 
 SimpleMatrixClient.setLogLevel(LogLevel.NONE);
 
-const MATRIX_HS_USERNAME = 'app';
-const MATRIX_HS_PASSWORD = 'p4sSw0rd123';
-const MATRIX_HS_URL = 'http://localhost:8008';
+const MATRIX_HS_USERNAME = process?.env?.MATRIX_HS_USERNAME ?? 'app';
+const MATRIX_HS_PASSWORD = process?.env?.MATRIX_HS_PASSWORD ?? 'p4sSw0rd123';
+const MATRIX_HS_URL = process?.env?.MATRIX_HS_URL ?? 'http://localhost:8008';
 
 describe('system', () => {
 

@@ -1,6 +1,13 @@
-# @heusalagroup/hghs-test
+# System tests for our Matrix software
 
-System tests for fi.hg.matrix and matrix servers including hghs.
+These tests will be used as a specification what we'll implement next in 
+[hghs](https://github.com/heusalagroup/hghs) 
+and will eventually be system tests for our software:
+
+ * [`hghs`](https://github.com/heusalagroup/hghs) Matrix.org server
+ * [`fi.hg.matrix`](https://github.com/heusalagroup/fi.hg.matrix) git module
+ * [`SimpleMatrixClient`](https://github.com/heusalagroup/fi.hg.matrix/blob/main/SimpleMatrixClient.ts) lightweight, zero dep Matrix client
+ * [`MatrixCrudRepository`](https://github.com/heusalagroup/fi.hg.matrix/blob/main/MatrixCrudRepository.ts) CRUD repository implementation
 
 ### Install test software
 
@@ -16,13 +23,17 @@ Select one of the servers for testing.
 ***WARNING!*** **Our docker configurations are not secure enough to be deployed 
 in the public. These are intended to be used for local temporary testing only.**
 
-#### HgHs
+#### HgHs server
 
 ```shell
 docker-compose up
 ```
 
-#### Synapse
+Our `hghs` is far from fully functioning Matrix server and probably will never 
+be. It is under test driven development. 
+
+
+#### Synapse server
 
 ```shell
 docker-compose -f docker-compose.synapse.yml up
@@ -34,7 +45,7 @@ When started for the first time, you must create a user for testing:
 docker exec -it hghs-test-synapse register_new_matrix_user http://localhost:8008 -c /data/homeserver.yaml --no-admin -u app -p p4sSw0rd123
 ```
 
-#### Dendrite
+#### Dendrite server
 
 ```shell
 docker-compose -f docker-compose.dendrite.yml up
@@ -45,6 +56,20 @@ When started for the first time, you must create a user for testing:
 ```shell
 docker exec -it hghs-test-dendrite /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username app -password p4sSw0rd123
 ```
+
+#### Other servers
+
+You can run the test suite against any Matrix server.
+
+Just start the server running at `http://localhost:8008` with a user `app` and password `p4sSw0rd123`.
+
+You can also change these settings using following environment variables:
+
+| Environment variable | Default value           |
+| -------------------- | ----------------------- |
+| `MATRIX_HS_URL`      | `http://localhost:8008` |
+| `MATRIX_HS_USERNAME` | `app`                   |
+| `MATRIX_HS_PASSWORD` | `p4sSw0rd123`           |
 
 ### Run system tests
 
