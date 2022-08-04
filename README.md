@@ -11,7 +11,10 @@ npm install
 
 ### Start up containers (test subjects)
 
-Select one of the servers for testing
+Select one of the servers for testing.
+
+***WARNING!*** **Our docker configurations are not secure enough to be deployed 
+in the public. These are intended to be used for local temporary testing only.**
 
 #### HgHs
 
