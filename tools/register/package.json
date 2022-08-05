@@ -1,0 +1,48 @@
+{
+  "name": "@heusalagroup/fi.hg.matrix.register",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/register.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-prod": "node dist/register.js",
+    "start": "ts-node src/register.ts",
+    "build": "rollup -c"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "bin": {
+    "register": "dist/register.js"
+  },
+  "keywords": [
+    "typescript",
+    "bin",
+    "shell",
+    "command",
+    "cli",
+    "nodejs"
+  ],
+  "dependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-typescript": "^7.18.6",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-inject": "^4.0.4",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@rollup/plugin-typescript": "^8.3.4",
+    "@types/lodash": "^4.14.182",
+    "@types/node": "^18.6.4",
+    "lodash": "^4.17.21",
+    "rollup": "^2.77.2",
+    "rollup-plugin-uglify": "^6.0.4",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "devDependencies": {}
+}
