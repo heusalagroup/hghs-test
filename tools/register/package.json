@@ -13,7 +13,7 @@
   "license": "ISC",
   "private": true,
   "bin": {
-    "register": "dist/register.js"
+    "hg-matrix-register": "dist/register.js"
   },
   "keywords": [
     "typescript",

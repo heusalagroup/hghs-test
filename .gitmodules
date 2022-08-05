@@ -10,6 +10,11 @@
 	path = io/hghs
 	url = git@github.com:heusalagroup/hghs.git
 	branch = main
-[submodule "/Users/jhh/git/heusalagroup/hghs-test/tools/register/src/fi/hg/core"]
-	path = /Users/jhh/git/heusalagroup/hghs-test/tools/register/src/fi/hg/core
+[submodule "tools/register/src/fi/hg/core"]
+	path = tools/register/src/fi/hg/core
 	url = git@github.com:heusalagroup/fi.hg.core.git
+	branch = main
+[submodule "tools/register/src/fi/hg/matrix"]
+	path = tools/register/src/fi/hg/matrix
+	url = git@github.com:heusalagroup/fi.hg.matrix.git
+	branch = main

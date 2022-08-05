@@ -1,0 +1,65 @@
+version: '3.1'
+
+services:
+
+#  hghs-test-postgres:
+#    container_name: hghs-test-postgres
+#    hostname: hghs-test-postgres
+#    image: postgres:14
+#    restart: always
+#    volumes:
+#    - ./io/conduit/create_db.sh:/docker-entrypoint-initdb.d/20-create_db.sh
+#    - ./io/conduit/pgdata:/var/lib/postgresql/data
+#    environment:
+#      POSTGRES_PASSWORD: qTuH2FK8EgKUyWae
+#      POSTGRES_USER: conduit
+#    healthcheck:
+#      test: ["CMD-SHELL", "pg_isready -U conduit"]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 5
+
+#  # See also https://hub.docker.com/r/mailhog/mailhog/
+#  hghs-test-smtp:
+#    container_name: hghs-test-smtp
+#    image: mailhog/mailhog
+#    restart: always
+#    logging:
+#      driver: "none"  # disable saving logs
+#    ports:
+#    - "1025:1025" # smtp server
+#    - "8025:8025" # web ui
+
+  # See also https://github.com/timokoesters/conduit/blob/next/docker/README.md
+  hghs-test-conduit-backend:
+    container_name: hghs-test-conduit-backend
+    image: matrixconduit/matrix-conduit:latest
+    restart: unless-stopped
+    volumes:
+    - ./io/conduit/db:/srv/conduit/.local/share/conduit
+    - ./io/conduit/conduit.toml:/srv/conduit/conduit.toml
+    environment:
+      CONDUIT_SERVER_NAME: 'localhost'
+      CONDUIT_TRUSTED_SERVERS: '[]'
+      CONDUIT_ALLOW_REGISTRATION: 'true'
+      CONDUIT_PORT: 8008
+      CONDUIT_CONFIG: "/srv/conduit/conduit.toml"
+      CONDUIT_LOG: debug
+    ports:
+    - "8008:8008"
+#    depends_on:
+#    - hghs-test-smtp
+#    - hghs-test-postgres
+
+#  hghs-test-conduit-nginx:
+#    container_name: hghs-test-conduit-nginx
+#    image: nginx:latest
+#    restart: unless-stopped
+#    ports:
+#    - "8008:80"
+#    environment:
+#    - NGINX_PORT=80
+#    volumes:
+#    - ./io/conduit/nginx/templates:/etc/nginx/templates
+#    depends_on:
+#    - hghs-test-conduit-backend

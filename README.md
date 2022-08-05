@@ -60,6 +60,16 @@ docker exec -it hghs-test-dendrite /usr/bin/create-account -config /etc/dendrite
 docker exec -it hghs-test-dendrite /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username app2 -password p4sSw0rd456
 ```
 
+#### Conduit 
+
+```shell
+docker-compose -f docker-compose.conduit.yml up
+```
+
+Once started, you must manually create test users. Apparently, there is no command line interface to do it. 
+Because of this, I have not tested if Conduit works.
+
+
 #### Other servers
 
 You can run the test suite against any Matrix server.
