@@ -11,6 +11,8 @@ and will eventually be system tests for our software:
 ### Install test software
 
 ```shell
+git clone git@github.com:hangovergames/hghs-test.git hghs-test
+cd hghs-test
 git submodule update --init --recursive
 npm install
 ```
