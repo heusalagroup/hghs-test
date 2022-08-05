@@ -44,6 +44,7 @@ When started for the first time, you must create a user for testing:
 
 ```shell
 docker exec -it hghs-test-synapse register_new_matrix_user http://localhost:8008 -c /data/homeserver.yaml --no-admin -u app -p p4sSw0rd123
+docker exec -it hghs-test-synapse register_new_matrix_user http://localhost:8008 -c /data/homeserver.yaml --no-admin -u app2 -p p4sSw0rd456
 ```
 
 #### Dendrite server
@@ -56,6 +57,7 @@ When started for the first time, you must create a user for testing:
 
 ```shell
 docker exec -it hghs-test-dendrite /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username app -password p4sSw0rd123
+docker exec -it hghs-test-dendrite /usr/bin/create-account -config /etc/dendrite/dendrite.yaml -username app2 -password p4sSw0rd456
 ```
 
 #### Other servers
@@ -66,11 +68,15 @@ Just start the server running at `http://localhost:8008` with a user `app` and p
 
 You can also change these settings using following environment variables:
 
-| Environment variable | Default value           |
-| -------------------- | ----------------------- |
-| `MATRIX_HS_URL`      | `http://localhost:8008` |
-| `MATRIX_HS_USERNAME` | `app`                   |
-| `MATRIX_HS_PASSWORD` | `p4sSw0rd123`           |
+| Environment variable   | Default value           |
+| ---------------------- | ----------------------- |
+| `MATRIX_HS_URL`        | `http://localhost:8008` |
+| `MATRIX_HS_USERNAME`   | `app`                   |
+| `MATRIX_HS_USER_ID`    | `@app:localhost`        |
+| `MATRIX_HS_PASSWORD`   | `p4sSw0rd123`           |
+| `MATRIX_HS_USERNAME_2` | `app2`                  |
+| `MATRIX_HS_USER_IDE_2` | `@app2:localhost`       |
+| `MATRIX_HS_PASSWORD_2` | `p4sSw0rd456`           |
 
 ### Run system tests
 

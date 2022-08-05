@@ -42,7 +42,7 @@ modules:
 # lowercase and may contain an explicit port.
 # Examples: matrix.org, localhost:8080
 #
-server_name: "matrix.my.host"
+server_name: "localhost"
 
 # When running as a daemon, the file to store the pid in
 #
