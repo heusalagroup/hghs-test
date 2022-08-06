@@ -10,8 +10,7 @@ services:
       PORT: "8008"
       BACKEND_LOG_LEVEL: DEBUG
       BACKEND_URL: "http://0.0.0.0:8008"
-      BACKEND_INITIAL_USERNAME: "app"
-      BACKEND_INITIAL_PASSWORD: "p4sSw0rd123"
+      BACKEND_INITIAL_USERS: "app:p4sSw0rd123;app2:p4sSw0rd456"
       BACKEND_EMAIL_CONFIG: "smtp://hghs-test-smtp:1025"
       BACKEND_JWT_SECRET: "HyztBRx6pLpsmVCewATv8TctTTtEHrPz"
     ports:

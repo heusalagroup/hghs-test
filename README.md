@@ -33,7 +33,6 @@ docker-compose up
 Our `hghs` is far from fully functioning Matrix server and probably will never 
 be. It is under test driven development. 
 
-
 #### Synapse server
 
 ```shell
@@ -68,7 +67,6 @@ docker-compose -f docker-compose.conduit.yml up
 
 Once started, you must manually create test users. Apparently, there is no command line interface to do it. 
 Because of this, I have not tested if Conduit works.
-
 
 #### Other servers
 
