@@ -28,8 +28,9 @@ import { PutRoomStateWithEventTypeResponseDTO } from "../fi/hg/matrix/types/resp
 import { SetRoomStateByTypeRequestDTO } from "../fi/hg/matrix/types/request/setRoomStateByType/SetRoomStateByTypeRequestDTO";
 import { MatrixSyncResponseDTO } from "../fi/hg/matrix/types/response/sync/MatrixSyncResponseDTO";
 import { isMatrixRoomId, MatrixRoomId } from "../fi/hg/matrix/types/core/MatrixRoomId";
-import { filter, keys } from "../fi/hg/core/modules/lodash";
+import { keys } from "../fi/hg/core/modules/lodash";
 import { MatrixWhoAmIResponseDTO } from "../fi/hg/matrix/types/response/whoami/MatrixWhoAmIResponseDTO";
+import { MatrixRoomVersion } from "../fi/hg/matrix/types/MatrixRoomVersion";
 
 SimpleMatrixClient.setLogLevel(LogLevel.NONE);
 
@@ -180,7 +181,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -259,7 +260,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -350,7 +351,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -458,7 +459,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -544,7 +545,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -632,7 +633,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -731,7 +732,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -833,7 +834,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -923,7 +924,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -1020,7 +1021,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
@@ -1125,7 +1126,7 @@ describe('system', () => {
                     preset: MatrixCreateRoomPreset.PRIVATE_CHAT,
                     creation_content: creationContent,
                     initial_state: initialState,
-                    room_version: "8",
+                    room_version: MatrixRoomVersion.V8,
                     power_level_content_override: {
                         events: allowedEventsObject
                     }
