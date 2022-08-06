@@ -107,7 +107,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/13
          */
-        describe('#createRoom', () => {
+        xdescribe('#createRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -186,7 +186,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/7
          */
-        describe('#getRoomStateByType', () => {
+        xdescribe('#getRoomStateByType', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -277,7 +277,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/8
          */
-        describe('#setRoomStateByType', () => {
+        xdescribe('#setRoomStateByType', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -385,7 +385,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/5
          */
-        describe('#getJoinedMembers', () => {
+        xdescribe('#getJoinedMembers', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -471,7 +471,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/10
          */
-        describe('#leaveRoom', () => {
+        xdescribe('#leaveRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -559,7 +559,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/9
          */
-        describe('#forgetRoom', () => {
+        xdescribe('#forgetRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -648,7 +648,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/11
          */
-        describe('#inviteToRoom', () => {
+        xdescribe('#inviteToRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
             let client2 : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
@@ -750,7 +750,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/14
          */
-        describe('#joinRoom', () => {
+        xdescribe('#joinRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
             let client2 : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
@@ -850,7 +850,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/14
          */
-        describe('#isAlreadyInTheRoom', () => {
+        xdescribe('#isAlreadyInTheRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -937,7 +937,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/15
          */
-        describe('#waitForEvents', () => {
+        xdescribe('#waitForEvents', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
             let client2 : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
@@ -1050,7 +1050,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/15
          */
-        describe('#sync', () => {
+        xdescribe('#sync', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
