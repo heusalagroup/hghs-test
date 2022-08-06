@@ -27,7 +27,7 @@ import { MatrixRoomJoinedMembersDTO } from "../fi/hg/matrix/types/response/roomJ
 import { PutRoomStateWithEventTypeResponseDTO } from "../fi/hg/matrix/types/response/setRoomStateByType/PutRoomStateWithEventTypeResponseDTO";
 import { SetRoomStateByTypeRequestDTO } from "../fi/hg/matrix/types/request/setRoomStateByType/SetRoomStateByTypeRequestDTO";
 import { MatrixSyncResponseDTO } from "../fi/hg/matrix/types/response/sync/MatrixSyncResponseDTO";
-import { MatrixRoomId } from "../fi/hg/matrix/types/core/MatrixRoomId";
+import { isMatrixRoomId, MatrixRoomId } from "../fi/hg/matrix/types/core/MatrixRoomId";
 import { filter, keys } from "../fi/hg/core/modules/lodash";
 import { MatrixWhoAmIResponseDTO } from "../fi/hg/matrix/types/response/whoami/MatrixWhoAmIResponseDTO";
 
@@ -118,7 +118,7 @@ describe('system', () => {
         /**
          * @see https://github.com/heusalagroup/hghs/issues/13
          */
-        xdescribe('#createRoom', () => {
+        describe('#createRoom', () => {
 
             let client : SimpleMatrixClient = new SimpleMatrixClient(MATRIX_HS_URL);
 
@@ -188,7 +188,7 @@ describe('system', () => {
 
                 const response : MatrixCreateRoomResponseDTO = await client.createRoom(options);
 
-                expect(response.room_id).toBeDefined();
+                expect( isMatrixRoomId(response.room_id) ).toBe(true);
 
             });
 
