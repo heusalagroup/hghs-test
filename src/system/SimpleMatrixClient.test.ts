@@ -29,6 +29,7 @@ import { SetRoomStateByTypeRequestDTO } from "../fi/hg/matrix/types/request/setR
 import { MatrixSyncResponseDTO } from "../fi/hg/matrix/types/response/sync/MatrixSyncResponseDTO";
 import { MatrixRoomId } from "../fi/hg/matrix/types/core/MatrixRoomId";
 import { filter, keys } from "../fi/hg/core/modules/lodash";
+import { MatrixWhoAmIResponseDTO } from "../fi/hg/matrix/types/response/whoami/MatrixWhoAmIResponseDTO";
 
 SimpleMatrixClient.setLogLevel(LogLevel.NONE);
 
@@ -41,6 +42,7 @@ const MATRIX_HS_USER_ID_2 = process?.env?.MATRIX_HS_USER_ID_2 ?? '@app2:localhos
 const MATRIX_HS_PASSWORD_2 = process?.env?.MATRIX_HS_PASSWORD_2 ?? 'p4sSw0rd456';
 
 const MATRIX_HS_URL = process?.env?.MATRIX_HS_URL ?? 'http://localhost:8008';
+const MATRIX_HS_HOSTNAME = process?.env?.MATRIX_HS_HOSTNAME ?? 'localhost';
 const MATRIX_HS_TEST_STATE_TYPE = "fi.hg.hs.test";
 const MATRIX_HS_TEST_DELETED_STATE_TYPE = "fi.hg.hs.deleted.test";
 const MATRIX_HS_TEST_STATE_KEY = "";
@@ -71,7 +73,15 @@ describe('system', () => {
 
             it('can login', async () => {
 
-                await client.login(MATRIX_HS_USERNAME, MATRIX_HS_PASSWORD);
+                const loggedInClient = await client.login(MATRIX_HS_USERNAME, MATRIX_HS_PASSWORD);
+
+                expect( client.getUserId() ).not.toBeDefined();
+                expect( client.getHomeServerName() ).toBe(MATRIX_HS_HOSTNAME);
+                expect( client.getHomeServerUrl() ).toBe(MATRIX_HS_URL);
+
+                expect( loggedInClient.getUserId() ).toBe(MATRIX_HS_USER_ID);
+                expect( loggedInClient.getHomeServerName() ).toBe(MATRIX_HS_HOSTNAME);
+                expect( loggedInClient.getHomeServerUrl() ).toBe(MATRIX_HS_URL);
 
             });
 
@@ -97,8 +107,9 @@ describe('system', () => {
 
             it('can fetch the user id', async () => {
                 expect(client.getState()).toBe(SimpleMatrixClientState.AUTHENTICATED);
-                const userId = await client.whoami();
-                expect(userId).toBe(MATRIX_HS_USER_ID);
+                const response : MatrixWhoAmIResponseDTO | undefined = await client.whoamiDTO();
+                expect(response).toBeDefined();
+                expect(response?.user_id).toBe(MATRIX_HS_USER_ID);
                 expect(client.getUserId()).toBe(MATRIX_HS_USER_ID);
             });
 
